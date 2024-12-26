@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
-
 @NgModule({
   declarations: [],
   imports: [
     CommonModule
   ]
 })
-export class OwnerModule { }
+export class SurveyEdition {
+  number!: number;
+}
