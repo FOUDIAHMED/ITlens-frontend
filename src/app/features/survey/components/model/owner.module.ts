@@ -9,4 +9,8 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ]
 })
-export class Owner { }
+export class Owner { 
+  id!:string;
+  name!:string;
+
+}

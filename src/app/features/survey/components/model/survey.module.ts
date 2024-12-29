@@ -11,7 +11,7 @@ import {SurveyEdition} from './survey-edition.module';
     CommonModule
   ]
 })
-export class SurveyModule {
+export class Survey {
   id!: string;
   title!:string;
   description!:string;

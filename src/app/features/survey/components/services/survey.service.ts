@@ -1,33 +1,17 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Survey} from '../model/survey.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SurveyService {
-  private baseUrl: string="http://localhost:8080/api/surveys";
+  private readonly baseURL = "http://localhost:8080/surveys/all/";
 
+  constructor(private httpClient: HttpClient) { }
 
-  constructor(private http: HttpClient) { }
-
-  /*findAll(): Observable<SurveyResponseDto[]> {
-    return this.http.get<SurveyResponseDto[]>(`${this.apiUrl}all/`);
+  getSurveysList(): Observable<Survey[]>{
+    return this.httpClient.get<Survey[]>(this.baseURL);
   }
-
-  findById(id: number): Observable<SurveyResponseDto> {
-    return this.http.get<SurveyResponseDto>(`${this.apiUrl}${id}`);
-  }
-
-  create(dto: SurveyRequestDto): Observable<SurveyResponseDto> {
-    return this.http.post<SurveyResponseDto>(`${this.apiUrl}create/`, dto);
-  }
-
-  update(id: number, dto: SurveyRequestDto): Observable<SurveyResponseDto> {
-    return this.http.put<SurveyResponseDto>(`${this.apiUrl}${id}`, dto);
-  }
-
-  delete(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}${id}`);
-  }*/
 }
