@@ -1,0 +1,54 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.content-container {
+    display: flex;
+    width: 100%;
+}
+
+.subject-container {
+    width: 50%;
+    padding-right: 10px;
+}
+
+.question-container {
+    width: 50%;
+    padding-left: 10px;
+}
+
+.tree-root {
+    font-family: Arial, sans-serif;
+}
+
+.subject-details, .sub-subject-details {
+    transition: all 0.3s ease-out;
+}
+
+.subject-summary, .sub-subject-summary {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.subject-summary:hover, .sub-subject-summary:hover {
+    background-color: #f0f0f0;
+}
+
+.subject-summary::-webkit-details-marker,
+.sub-subject-summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] > summary svg {
+    transform: rotate(90deg);
+}

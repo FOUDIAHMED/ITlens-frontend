@@ -1,1 +1,64 @@
-<p>survey-editions-item works!</p>
+<!-- filepath: /c:/Users/safiy/Desktop/ITlens-frontend/src/app/features/survey/components/survey-editions-item/survey-editions-item.component.html -->
+ 
+<div class="survey-tree bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">Survey Edition: {{ edition?.year }}</h2>
+    <div class="content-container flex">
+        <div class="subject-container w-1/2 pr-4">
+            <ul class="tree-root list-none pl-0">
+                <ng-container *ngFor="let subject of edition?.subjects; trackBy: trackById">
+                    <ng-container *ngIf="subject.parentSubject == null">
+                        <li class="mb-4">
+                            <details class="subject-details">
+                                <summary class="subject-summary flex items-center cursor-pointer hover:bg-gray-100 p-2 rounded">
+                                    <span class="mr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </span>
+                                    <span class="font-semibold">{{ subject.title }}</span>
+                                </summary>
+                                <ul class="pl-4">
+                                    <ng-container *ngFor="let subSubject of subject.subSubjects">
+                                        <li class="mb-2">
+                                            <details class="subsubject-details">
+                                                <summary class="subsubject-summary flex items-center cursor-pointer hover:bg-gray-100 p-2 rounded" (click)="selectSubSubject(subSubject)">
+                                                    <span class="mr-2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                                        </svg>
+                                                    </span>
+                                                    <span class="font-normal">{{ subSubject.title }}</span>
+                                                </summary>
+                                                <ul class="pl-4">
+                                                    <li *ngFor="let subSubSubject of subSubject.subSubjects" class="mb-2">
+                                                        <span class="font-normal">{{ subSubSubject.title }}</span>
+                                                    </li>
+                                                </ul>
+                                            </details>
+                                        </li>
+                                    </ng-container>
+                                </ul>
+                            </details>
+                        </li>
+                    </ng-container>
+                </ng-container>
+            </ul>
+        </div>
+
+        <div class="question-container w-1/2 pl-4" *ngIf="selectedSubSubject">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Questions for {{ selectedSubSubject.title }}</h3>
+            <table class="min-w-full bg-white">
+                <thead>
+                    <tr>
+                        <th class="py-2">Question</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let question of selectedSubSubject.questions">
+                        <td class="border px-4 py-2">{{ question.question }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

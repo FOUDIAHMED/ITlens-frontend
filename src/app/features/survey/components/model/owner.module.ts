@@ -10,7 +10,15 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class Owner { 
-  id!:string;
-  name!:string;
+  private id!: number;
+  private name!: string;
+
+  setId(id: number): void {
+    this.id = id;
+  }
+
+  setName(name: string): void {
+    this.name = name;
+  }
 
 }

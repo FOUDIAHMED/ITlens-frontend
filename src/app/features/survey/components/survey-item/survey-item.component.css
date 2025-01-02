@@ -1,0 +1,22 @@
+.survey-card {
+    position: relative;
+}
+
+.delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.delete-button svg {
+    width: 24px;
+    height: 24px;
+    color: #ff0000; /* Red color for the delete icon */
+}
+
+
+.delete-button:hover svg {
+    color: #ff4d4d; /* Lighter red color on hover */
+}

@@ -1,9 +1,19 @@
 <div class="container mx-auto p-4">
     <h2 class="text-2xl font-bold mb-6">Surveys List</h2>
+    
+
+    
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      @for (survey of surveys; track survey.id) {
-        <app-survey-item [survey]="survey"></app-survey-item>
-      }
+        <ng-container *ngFor="let survey of surveys; trackBy: trackById">
+            <app-survey-item (isModalOpen)="handleUpdatePopupVisibility($event)" [survey]="survey" (delete)="handleSurveyDeleted($event)"></app-survey-item>
+            @if (isVisibleUpdateSurveyPopup()) {
+              <app-update-survey [survey]="survey" (update)="handleSurveyAdded()"></app-update-survey>
+          }
+        </ng-container>
     </div>
-  </div>
-  
+
+    <app-add-survey *ngIf="isPupUpOpen" (surveyAdded)="handleSurveyAdded()"></app-add-survey>
+    
+    
+    
+</div>

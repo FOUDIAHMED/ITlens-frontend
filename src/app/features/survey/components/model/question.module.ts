@@ -9,5 +9,5 @@ import { NgModule } from '@angular/core';
 })
 export class question {
   id!: string;
-  title!:string;
+  question!:string;
 }
