@@ -5,6 +5,7 @@ import {SurveyEdition} from './survey-edition.module';
 import { SurveyEditionsItemComponent } from '../survey-editions-item/survey-editions-item.component';
 import { SurveyItemComponent } from '../survey-item/survey-item.component';
 import { FormsModule } from '@angular/forms';
+import { AddSurveyEditionComponent } from '../add-survey-edition/add-survey-edition.component';
 
 
 
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     SurveyEditionsItemComponent, // Import the standalone component
-    SurveyItemComponent, // Import the standalone component
+    SurveyItemComponent,
+    AddSurveyEditionComponent // Import the standalone component
   ],
   exports: [
     SurveyEditionsItemComponent, // Export the standalone component

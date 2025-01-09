@@ -6,9 +6,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <ng-container *ngFor="let survey of surveys; trackBy: trackById">
             <app-survey-item (isModalOpen)="handleUpdatePopupVisibility($event)" [survey]="survey" (delete)="handleSurveyDeleted($event)"></app-survey-item>
-            @if (isVisibleUpdateSurveyPopup()) {
-              <app-update-survey [survey]="survey" (update)="handleSurveyAdded()"></app-update-survey>
-          }
+            
         </ng-container>
     </div>
 

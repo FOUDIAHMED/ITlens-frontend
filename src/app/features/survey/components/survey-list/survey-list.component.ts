@@ -11,7 +11,7 @@ import { UpdateSurveyComponent } from '../../update-survey/update-survey.compone
 @Component({
   selector: 'app-survey-list',
   standalone: true,
-  imports: [CommonModule, SurveyItemComponent, FormsModule, AddSurveyComponent , UpdateSurveyComponent],
+  imports: [CommonModule, SurveyItemComponent, FormsModule, AddSurveyComponent ],
   templateUrl: './survey-list.component.html',
   styleUrls: ['./survey-list.component.css']
 })

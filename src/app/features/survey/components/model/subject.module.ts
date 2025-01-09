@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { question } from './question.module';
-import { Answer } from './answer.module';
+import { Question} from './question.module';
 
 
 
@@ -20,10 +19,4 @@ export class Subject {
 
 
 }
-export interface Question {
-    id: number;
-    question: string;
-    answerCount: number;
-    subject: Subject;
-    answers: Answer[]; 
-  }
+

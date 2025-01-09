@@ -1,0 +1,59 @@
+<div *ngIf="survey">
+  <h2 class="text-2xl font-bold" >{{ survey.title }}</h2> <!-- Display the title of the survey -->
+  <div *ngFor="let edition of survey.surveyEditions">
+    <button [ngClass]="hideEdition() ? 'hidden' : 'block'" class=" bg-blue-500 text-white px-4 py-2 rounded mb-2 m-2" (click)="showsubjects(edition)" >
+      {{ edition.year }}
+    </button>
+  </div>
+  <div *ngIf="selectedEdition" class="flex">
+    <div *ngFor="let subject of selectedEdition.subjects">
+      <div class="  mr-4">
+        @if (subject.questions.length>0) {
+          
+          <h4 class="text-lg font-semibold" (click)="showForm(subject,$event)">{{ subject.title }}</h4>
+      <div class="w-[10rem] rounded-full bg-gray-700">
+        <div class="bg-purple-500 h-full rounded-full  text-white font-medium p-0.5 text-xs text-center" [style.width.%]="(currentQuestionIndex/subject.questions.length)*100">70%</div>
+      </div>
+        }
+      
+      </div>
+    
+      
+      @if(selectedSubject==subject){
+        <div  [ngClass]="closeform() ? 'block' : 'hidden'" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75" (click)="closeModalOnOutsideClick($event)">
+        <form >
+          <div class=" bg-slate-800 w-full max-w-lg justify-center items-center p-4 rounded-lg shadow-lg border border-gray-200">
+            <label class="block text-gray-700 text-sm font-bold mb-2">{{ subject.questions[currentQuestionIndex].question }}</label>
+            <label class="flex items-center p-4 bg-white rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 m-2">
+              <input type="radio" name="survey-option" value="not-enough" class="w-4 h-4 text-green-600 border-gray-300 focus:ring-green-500">
+              <span class="ml-3 text-gray-700">Not enough</span>
+            </label>
+            <label class="flex items-center p-4 bg-white rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 m-2">
+              <input type="radio" name="survey-option" value="not-enough" class="w-4 h-4 text-green-600 border-gray-300 focus:ring-green-500">
+              <span class="ml-3 text-gray-700">Not enough</span>
+            </label>
+            <label class="flex items-center p-4 bg-white rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 m-2">
+              <input type="radio" name="survey-option" value="not-enough" class="w-4 h-4 text-green-600 border-gray-300 focus:ring-green-500">
+              <span class="ml-3 text-gray-700">Not enough</span>
+            </label>
+            <label class="flex items-center p-4 bg-white rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-50 m-2">
+              <input type="radio" name="survey-option" value="not-enough" class="w-4 h-4 text-green-600 border-gray-300 focus:ring-green-500">
+              <span class="ml-3 text-gray-700">Not enough</span>
+            </label>
+            <div class="flex justify-center bg-green-500 w-full">
+            <button type="button" class="justify-center bg-green-500 text-white px-4 py-2 rounded mt-4" (click)="nextQuestion()">Next</button>
+          </div>
+          </div>
+          
+        </form>
+      </div>
+      }
+    </div>
+  </div>
+
+ 
+
+
+  
+  
+</div>

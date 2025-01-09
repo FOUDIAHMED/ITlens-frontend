@@ -25,7 +25,7 @@ export class SurveyEditionsItemComponent implements OnInit {
       this.surveyEditionService.getSurveyEditionById(id).subscribe((data: SurveyEdition) => {
         this.edition = data;
         
-        console.log(this.edition.subjects[0]);
+        console.log(this.edition);
       });
     });
   }
